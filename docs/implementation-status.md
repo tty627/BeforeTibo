@@ -1,6 +1,6 @@
 # Implementation status
 
-Current milestone summary: M0–M4 implemented; M5 local checks and release preparation completed on the documented macOS environment. Real-account smoke (B22) remains NOT RUN/BLOCKED pending explicit execution/spending authorization. Public release (B24) is authorized for tty627/BeforeTibo (public, MIT © 2026 tty627); documentation/package and GitHub publication checks are in progress. Historical checkpoints and failures below are retained.
+Current milestone summary: M0–M4 implemented; M5 local checks and release preparation completed on the documented macOS environment. Real-account smoke (B22) remains NOT RUN/BLOCKED pending explicit execution/spending authorization. Public release (B24) completed: tty627/BeforeTibo is public under MIT © 2026 tty627, and v0.1.0-alpha.1 is a verified GitHub prerelease. npm publication and real-account smoke remain outside this authorization. Historical checkpoints and failures below are retained.
 
 ## Environment — 2026-09-22
 
@@ -169,3 +169,11 @@ Publication facts: project files explicitly staged and reviewed, no local commit
 - Added live CI badges to both READMEs, updated the verified environment/release records and prepared the final documentation commit. Tag and Release remain uncreated at this checkpoint.
 
 - Both CI logs were retrieved and read: macOS **26.6.2 (25G83) arm64**, Ubuntu **24.04.5 LTS x64**; both Node **24.20.0**, npm **11.19.0**, Git **2.55.0**, Vitest **4.1.11**. Each job passed **297 full / 140 contract / 40 integration tests**, **111 package files** and **161 candidate/staged files with 2 commits scanned**. Remote raw logs remain in ignored local evidence only.
+
+## GitHub prerelease published and verified — 2026-09-22
+
+- Final release commit **`d3cc9b191f67a1aa1c01f2512256fb302dcacdd4`** passed [both GitHub CI jobs](https://github.com/tty627/BeforeTibo/actions/runs/35699689183); this is the exact commit referenced by annotated tag **v0.1.0-alpha.1**. Tag was pushed normally and the remote peeled commit was checked.
+- Created and queried [BeforeTibo v0.1.0-alpha.1](https://github.com/tty627/BeforeTibo/releases/tag/v0.1.0-alpha.1): correct tag, **prerelease=true**, **draft=false**. Uploaded only the inspected project tarball and its SHA256SUMS. The downloaded published tarball hash was compared to the original and matched.
+- Released package: **111 files**, SHA-256 **995f4e183b504681b79c458d5637368a09f3431262f47e746abe39fdb1946c95**. It includes the guides and original documentation images, and excludes user source snapshots, credentials, private run data and raw logs. npm publish was not run.
+- Final implementation evidence: local clean installation and nine commands PASS; macOS/Linux push CI PASS; original failures and their fixes retained above. Real Codex/model/account/quota integration remains **NOT RUN**; fork-PR event behavior and the untriggered initial-directory/remote-conflict scenarios remain untested. No complete-acceptance claim is made for those cases.
+- This final documentation update records the completed external publication. It does not alter the tested runtime or move the release tag.

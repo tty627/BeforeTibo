@@ -25,3 +25,7 @@ Package Markdown links and images are now checked from the package file manifest
 Final post-documentation gate: nine commands PASS, package **111 files**; local Markdown/image destinations and installed repository/license metadata checked. Source scope remains the reviewed application and synthetic fixtures. The test configuration now prevents project test discovery from searching private local DEMO state. Initial scanning found **161 candidate files**, with no known secret matches.
 
 Public repository and first two commits have been published only after staged/history scans. Both GitHub-hosted jobs in [run 35699251338](https://github.com/tty627/BeforeTibo/actions/runs/35699251338) passed complete-history scanning, package boundaries and the installation smoke. Remote README HTML references and asset existence were verified through GitHub's API; live browser visual inspection was unavailable and is not claimed.
+
+## Published scope confirmed
+
+[GitHub prerelease v0.1.0-alpha.1](https://github.com/tty627/BeforeTibo/releases/tag/v0.1.0-alpha.1) points to CI-verified commit `d3cc9b191f67a1aa1c01f2512256fb302dcacdd4`. Release attachments are only the inspected 111-file application package and SHA256SUMS; the downloaded package matched the original hash. The public repository has the reviewed project code, synthetic fixtures, documentation and original visual assets. Private local state, toolchains, user snapshots, credentials and raw logs remain excluded. No npm registry upload occurred.

@@ -1,12 +1,12 @@
 # BeforeTibo v0.1.0-alpha.1 — release readiness
 
-This is an **authorized public prerelease candidate; publication checks are in progress**. Last reviewed 2026-09-22. Detailed evidence: [implementation history](docs/implementation-status.md), [AC-01–AC-92 matrix](docs/acceptance-results.md), [verified environments](docs/supported-environments.md).
+This is a **published and verified public GitHub prerelease**. Last reviewed 2026-09-22. Detailed evidence: [implementation history](docs/implementation-status.md), [AC-01–AC-92 matrix](docs/acceptance-results.md), [verified environments](docs/supported-environments.md).
 
 ## Release decision
 
-**Ready to tag the public alpha after the final documentation commit passes CI.** The maintainer authorized **tty627/BeforeTibo**, **public**, **MIT © 2026 tty627**, reviewed project-only scope and **v0.1.0-alpha.1**. The repository exists and the normal push to `master` was verified.
+**Published:** [BeforeTibo v0.1.0-alpha.1](https://github.com/tty627/BeforeTibo/releases/tag/v0.1.0-alpha.1), public repository **tty627/BeforeTibo**, MIT © 2026 tty627. The annotated tag resolves to **`d3cc9b191f67a1aa1c01f2512256fb302dcacdd4`**, which passed [macOS and Linux CI](https://github.com/tty627/BeforeTibo/actions/runs/35699689183). GitHub reports **prerelease=true**, **draft=false**. The inspected 111-file tarball and SHA256SUMS are attached; a downloaded copy matched the original SHA-256.
 
-The initial remote package-install failure was reproduced and fixed. [Both Linux and macOS GitHub jobs passed](https://github.com/tty627/BeforeTibo/actions/runs/35699251338) on commit `1d53d0a2472ca8611c55e535b5ed8f6c111e57b8`, including package installation and full-history secret scanning. macOS required actual sandbox/browser execution; Linux verified its documented offline/blocked behavior. This was a push workflow, not a fork-PR test. Tag/Release creation is the remaining step; npm publishing is not authorized.
+The initial CI installation failure was fixed and retained in the history. This release is verified for the documented mock/protocol/validator scope. Real model/account/quota integration and fork-PR event behavior remain NOT RUN. No npm registry publication was performed.
 
 ## Required commands
 
@@ -44,8 +44,6 @@ Exclude `.local/`, all run/harvest directories, `node_modules/`, generated `dist
 
 LICENSE is now standard MIT with **Copyright (c) 2026 tty627**; package metadata agrees. User inputs and generated third-party code keep their own licensing obligations.
 
-## Remaining publication gates
+## Remaining external validation
 
-Finish the documentation-only commit recording the actual CI results, verify its remote checks, create the v0.1.0-alpha.1 tag at that checked commit and create/query the GitHub prerelease. The release tarball is project-only, inspected and install-tested; it is not an npm registry publication.
-
-Real-account smoke requires separate authorization to read account context and consume usage. It remains NOT RUN. npm publication also requires separate authorization and is outside this GitHub release.
+GitHub publication is complete. Real-account/model/quota smoke requires separate authorization to read account context and consume usage; it remains NOT RUN. Fork-PR event behavior was not exercised. npm publishing also requires separate authorization and is outside this completed GitHub release.

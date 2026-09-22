@@ -181,8 +181,8 @@
 | AC-87 | PASS | [publication-review.md](publication-review.md)、实际index/worktree/history扫描与staged diff审查 | 最终161文件暂存审查及首次实际commit历史扫描PASS；仅上传已审查项目内容和合成DEMO截图。后续commit仍需逐次扫描。 |
 | AC-88 | PASS | 维护者本次明确答复；[GITHUB_RELEASE.md](../GITHUB_RELEASE.md) | 已确认 tty627/BeforeTibo、public、MIT © 2026 tty627、已审查公开范围及 alpha.1 预发布；不包含 npm 发布或真实账户消费授权。 |
 | AC-89 | PASS | [RELEASE_READINESS.md](../RELEASE_READINESS.md)、[release-notes.md](../release-notes.md)、[verification-results.json](verification-results.json) | 九项本地检查全部PASS；已准备真实结果、限制与发布草稿，公开目标已授权，未把准备完成称为发布成功。 |
-| AC-90 | NOT RUN | E-GIT：当前remote为空 | 未尝试冲突的同名仓库/已有remote发布；没有替换remote或force-push。 |
-| AC-91 | NOT RUN | 仓库已创建并push；[首轮CI](https://github.com/tty627/BeforeTibo/actions/runs/35698635470) | 已核对public/master与3566070提交；初次安装包失败已修复，第二轮Linux/macOS CI均成功；tag和Release尚未执行。 |
+| AC-90 | NOT RUN | E-GIT初始remote为空；后续核对了目标不存在及正确origin | 本次无同名冲突或指向其他项目的remote；已有正确origin时正常push，未替换或force-push。冲突拒绝场景未触发。 |
+| AC-91 | PASS | [实际Release](https://github.com/tty627/BeforeTibo/releases/tag/v0.1.0-alpha.1)；[最终提交CI](https://github.com/tty627/BeforeTibo/actions/runs/35699689183) | 仓库public、正常push、两个CI job成功、tag提交核对、Release预发布标志与附件下载hash均实际核验。未npm publish。 |
 | AC-92 | PASS | E-GIT、E-PACK、E-CONTRACT/RPC权限检查 | 本会话仅本地pack/install，未npm publish、未上传用户产物；产品无publisher入口且禁止网络/扩展越权。未来发布仍需单独授权。 |
 
 ## 保留的未测与发布条件
@@ -190,9 +190,9 @@
 - validator取消信号、默认stop/二次SIGINT、单独repair上限、resume身份变化、部分成功报告和活动期时钟异常记录已实际回归通过。
 - 干净目录九项发布检查已全部通过；暂存内容/现有历史已审查，发布草稿已完成；不能由本地测试通过推断已公开发布。
 - 真实exec、三个真实Recipe及真实quota仍为NOT RUN；没有账单/账户授权时继续保留该状态。
-- owner/repo、许可证署名与公开范围已确认；远端push CI已通过；tag/Release仍待执行。fork PR事件未运行，npm发布不在本次授权范围。
+- owner/repo、许可证署名与公开范围已确认；远端push CI、tag、Release及附件下载hash核验已完成。fork PR事件未运行，npm发布不在本次授权范围。
 
-当前计数：85 PASS、7 NOT RUN、0 BLOCKED、0 FAIL。NOT RUN 分别为 AC-01 未触发的非空构建目录场景、AC-81 远端 CI、AC-84–86 真实联调、AC-90 远端冲突流程及 AC-91 实际发布。原先 AC-83/88 的署名和公开授权阻塞已由维护者答复解决。
+最终计数：86 PASS、6 NOT RUN、0 BLOCKED、0 FAIL。NOT RUN 为 AC-01 未触发的非空构建目录场景、AC-81 fork-PR 事件、AC-84–86 真实联调、AC-90 既有远端冲突场景。Linux/macOS push CI 已实跑通过，不把它冒充 fork-PR 测试。
 
 补充磁盘证据：`tests/integration/safety-review.test.ts` 实际隔离51 MiB写入触发50 MiB预算取消且零成果；`tests/integration/csv.test.ts` 实际长路径浏览器验收与临时目录清理通过。浏览器数据均计入run预算，短Unix socket路径仅为可信alias，参见csv-validation.md。
 

@@ -70,8 +70,8 @@
   "real_model_tasks": "NOT RUN",
   "real_account_quota": "NOT RUN",
   "remote_ci": {
-    "url": "https://github.com/tty627/BeforeTibo/actions/runs/35699251338",
-    "commit": "1d53d0a2472ca8611c55e535b5ed8f6c111e57b8",
+    "url": "https://github.com/tty627/BeforeTibo/actions/runs/35699689183",
+    "commit": "d3cc9b191f67a1aa1c01f2512256fb302dcacdd4",
     "event": "push",
     "status": "PASS",
     "jobs": {
@@ -87,6 +87,18 @@
       "git": "2.55.0"
     }
   },
-  "publication": "Public repository tty627/BeforeTibo and master push verified. Both CI jobs passed. Final documentation commit and prerelease creation next.",
+  "publication": {
+    "repository": "https://github.com/tty627/BeforeTibo",
+    "visibility": "PUBLIC",
+    "release": "https://github.com/tty627/BeforeTibo/releases/tag/v0.1.0-alpha.1",
+    "tag": "v0.1.0-alpha.1",
+    "commit": "d3cc9b191f67a1aa1c01f2512256fb302dcacdd4",
+    "prerelease": true,
+    "draft": false,
+    "package_files": 111,
+    "package_sha256": "995f4e183b504681b79c458d5637368a09f3431262f47e746abe39fdb1946c95",
+    "download_hash_verified": true,
+    "npm": "NOT PUBLISHED"
+  },
   "checked_at_utc": "2026-09-22T07:13:08.852036+00:00"
 }

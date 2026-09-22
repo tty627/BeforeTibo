@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.1.0-alpha.1 — 2026-09-22 (prerelease candidate)
+## 0.1.0-alpha.1 — 2026-09-22 (GitHub prerelease)
 
 Initial alpha implementation: bounded single-worker runner, validated contracts, committed snapshots, protected outputs, durable dispatch intentions, recovery, immutable artifacts, offline reports, explicit DEMO worker, Codex protocol adapter and read-only quota policy, recipe validators and packaging checks.
 
