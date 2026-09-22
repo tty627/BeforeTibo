@@ -4,7 +4,9 @@ This is an **authorized public prerelease candidate; publication checks are in p
 
 ## Release decision
 
-Local implementation and the nine required checks passed on the documented environment. The maintainer has now authorized **tty627/BeforeTibo**, **public**, **MIT © 2026 tty627**, the reviewed project-only content scope and **v0.1.0-alpha.1** prerelease. The public repository has been created and commit `3566070b7d1ed84a886489785d97bea607e22ce3` was pushed normally to `master`; the remote hash was verified. Final local checks passed. The first remote CI failed package installation after the preceding tests/build passed. Fixing that failure and rerunning CI are required before tagging or creating the Release.
+**Ready to tag the public alpha after the final documentation commit passes CI.** The maintainer authorized **tty627/BeforeTibo**, **public**, **MIT © 2026 tty627**, reviewed project-only scope and **v0.1.0-alpha.1**. The repository exists and the normal push to `master` was verified.
+
+The initial remote package-install failure was reproduced and fixed. [Both Linux and macOS GitHub jobs passed](https://github.com/tty627/BeforeTibo/actions/runs/35699251338) on commit `1d53d0a2472ca8611c55e535b5ed8f6c111e57b8`, including package installation and full-history secret scanning. macOS required actual sandbox/browser execution; Linux verified its documented offline/blocked behavior. This was a push workflow, not a fork-PR test. Tag/Release creation is the remaining step; npm publishing is not authorized.
 
 ## Required commands
 
@@ -30,7 +32,7 @@ All commands use genuine Node 24.21.0. The system Node 25 path is not used as su
 - Toolsmith CSV: actual Playwright 1.63.0 / Chromium 153 fixed functional/browser validation under macOS Seatbelt, with temporary data included in the run disk budget. DEMO accepted 1 tool, then stopped for no progress after 3 dispatches. Real model generation **NOT RUN**.
 - Codex 0.154.0: actual help, generated public protocol, effective extension isolation and native sandbox probes. Account/model/real quota integration **NOT RUN**. This is not a claim that any account can execute successfully.
 - Quota: synthetic read-only observer, identity, multiple-window, stale/reset/reserve and failure checks. Runtime preflight must prove account/config/bucket matching. No purchases, reset redemption or API-key fallback.
-- macOS 26.5.2 arm64 is the local tested executable platform. Linux executable sandbox backend is not implemented; unsupported execution is blocked. The first Linux/macOS remote CI is recorded in implementation-status.md; it is not yet a passing release gate.
+- macOS 26.5.2 arm64 is the local tested executable platform. Linux executable sandbox backend is not implemented; unsupported execution is blocked. Linux/macOS push CI passed; [actual run](https://github.com/tty627/BeforeTibo/actions/runs/35699251338). Fork-PR event behavior remains NOT RUN.
 - npm advisory audit after the upgrade: **PASS, zero known vulnerabilities** (193 dependency entries). Earlier TLS failures remain recorded in the implementation history; this is an advisory database check, not a guarantee of absence of vulnerabilities.
 - No hard service-side zero-incremental-charge guarantee. Local dispatch/time/disk limits do not cap service billing.
 
@@ -44,6 +46,6 @@ LICENSE is now standard MIT with **Copyright (c) 2026 tty627**; package metadata
 
 ## Remaining publication gates
 
-The owner, name, visibility, attribution and public scope are confirmed. Rerun the affected checks after the bilingual README, original hero, workflow and real synthetic-DEMO screenshots; inspect the actual staged files and all history; commit; create the authorized repository and push normally; wait for real macOS/Linux CI; then tag, create and query the prerelease. Record the result of each operation separately.
+Finish the documentation-only commit recording the actual CI results, verify its remote checks, create the v0.1.0-alpha.1 tag at that checked commit and create/query the GitHub prerelease. The release tarball is project-only, inspected and install-tested; it is not an npm registry publication.
 
 Real-account smoke requires separate authorization to read account context and consume usage. It remains NOT RUN. npm publication also requires separate authorization and is outside this GitHub release.

@@ -172,7 +172,7 @@
 | AC-78 | PASS | E-PACK；[pack-smoke.mjs](../scripts/pack-smoke.mjs) | npm pack 离开源码树安装；CLI symlink、schemas、三 Recipe、模板定位和离线 demo 实测通过。 |
 | AC-79 | PASS | E-PACK；pack-smoke.mjs 文件白名单/禁用路径断言 | 当次 99 个打包文件不含 node_modules、runs、认证文件、日志；最终构建后重新列出并人工复查99个打包文件。 |
 | AC-80 | PASS | E-PACK、E-DEMO；[README.md](../README.md) 源码安装步骤人工核对 | 明确 local build/unpublished，不诱导执行未知同名 npx 包；可执行后端需维护者显式准备。 |
-| AC-81 | NOT RUN | [.github/workflows/ci.yml](../.github/workflows/ci.yml) 已审查 | 普通 pull_request、contents:read、合成 fixture、无个人 secrets；macOS要求真实浏览器，Linux执行blocked路径。远端 fork PR CI 没有运行。 |
+| AC-81 | NOT RUN | [.github/workflows/ci.yml](../.github/workflows/ci.yml)；[真实push CI](https://github.com/tty627/BeforeTibo/actions/runs/35699251338) | Linux/macOS push CI已全部通过，最小权限、无个人凭证和模型调用；合同指定的fork PR事件仍未实际运行，不能用push事件替代。 |
 | AC-82 | PASS | E-SHA；releasing.md 和 ci.yml | 使用经官方 GitHub API 实查的完整 40 字符 SHA；不是虚构值或漂移 tag。 |
 | AC-83 | PASS | [LICENSE](../LICENSE)、[supported-environments.md](supported-environments.md) | 维护者确认推荐署名 tty627，LICENSE 已为标准 MIT © 2026 tty627；平台/框架限制如实记录，不重授用户成果许可。 |
 | AC-84 | NOT RUN | [codex-compatibility.md](codex-compatibility.md) | 真实 exec 模型 smoke 未授权/未执行；公共帮助、配置和沙箱探针不能替代。 |
@@ -182,7 +182,7 @@
 | AC-88 | PASS | 维护者本次明确答复；[GITHUB_RELEASE.md](../GITHUB_RELEASE.md) | 已确认 tty627/BeforeTibo、public、MIT © 2026 tty627、已审查公开范围及 alpha.1 预发布；不包含 npm 发布或真实账户消费授权。 |
 | AC-89 | PASS | [RELEASE_READINESS.md](../RELEASE_READINESS.md)、[release-notes.md](../release-notes.md)、[verification-results.json](verification-results.json) | 九项本地检查全部PASS；已准备真实结果、限制与发布草稿，公开目标已授权，未把准备完成称为发布成功。 |
 | AC-90 | NOT RUN | E-GIT：当前remote为空 | 未尝试冲突的同名仓库/已有remote发布；没有替换remote或force-push。 |
-| AC-91 | NOT RUN | 仓库已创建并push；[首轮CI](https://github.com/tty627/BeforeTibo/actions/runs/35698635470) | 已核对public/master与3566070提交；远端安装包检查失败正在修复，tag和Release尚未执行。 |
+| AC-91 | NOT RUN | 仓库已创建并push；[首轮CI](https://github.com/tty627/BeforeTibo/actions/runs/35698635470) | 已核对public/master与3566070提交；初次安装包失败已修复，第二轮Linux/macOS CI均成功；tag和Release尚未执行。 |
 | AC-92 | PASS | E-GIT、E-PACK、E-CONTRACT/RPC权限检查 | 本会话仅本地pack/install，未npm publish、未上传用户产物；产品无publisher入口且禁止网络/扩展越权。未来发布仍需单独授权。 |
 
 ## 保留的未测与发布条件
@@ -190,7 +190,7 @@
 - validator取消信号、默认stop/二次SIGINT、单独repair上限、resume身份变化、部分成功报告和活动期时钟异常记录已实际回归通过。
 - 干净目录九项发布检查已全部通过；暂存内容/现有历史已审查，发布草稿已完成；不能由本地测试通过推断已公开发布。
 - 真实exec、三个真实Recipe及真实quota仍为NOT RUN；没有账单/账户授权时继续保留该状态。
-- owner/repo、许可证署名与公开范围已确认；远端 CI 和发布仍待执行。npm 发布不在本次授权范围。
+- owner/repo、许可证署名与公开范围已确认；远端push CI已通过；tag/Release仍待执行。fork PR事件未运行，npm发布不在本次授权范围。
 
 当前计数：85 PASS、7 NOT RUN、0 BLOCKED、0 FAIL。NOT RUN 分别为 AC-01 未触发的非空构建目录场景、AC-81 远端 CI、AC-84–86 真实联调、AC-90 远端冲突流程及 AC-91 实际发布。原先 AC-83/88 的署名和公开授权阻塞已由维护者答复解决。
 

@@ -1,5 +1,7 @@
 # BeforeTibo
 
+[![Offline verification](https://github.com/tty627/BeforeTibo/actions/workflows/ci.yml/badge.svg)](https://github.com/tty627/BeforeTibo/actions/workflows/ci.yml)
+
 **Spend the quota. Keep the work.**
 
 A local CLI that gives one Codex worker a bounded job, independently checks what it makes, and saves the useful results with an offline report.

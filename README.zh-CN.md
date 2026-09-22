@@ -10,6 +10,8 @@
 
 [English](README.md) · **简体中文** · [快速开始](#五分钟看见成果) · [安全边界](docs/security-model.md) · [验收记录](https://github.com/tty627/BeforeTibo/blob/master/docs/acceptance-results.md)
 
+[![离线验证](https://github.com/tty627/BeforeTibo/actions/workflows/ci.yml/badge.svg)](https://github.com/tty627/BeforeTibo/actions/workflows/ci.yml)
+
 `v0.1.0-alpha.1` · `Node.js 24` · `本地 CLI` · `MIT`
 
 </div>

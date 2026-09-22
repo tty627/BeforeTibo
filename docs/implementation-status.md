@@ -160,3 +160,12 @@ Publication facts: project files explicitly staged and reviewed, no local commit
 - Reproduced the exact `ENOTCACHED` error locally after a cold-cache npm ci. Fixed package-smoke installation to prefer cached dependencies while allowing documented setup-time registry access.
 - Preserved actual external-directory tarball installation, CLI symlink, Recipe/resource/metadata and Markdown/image checks. Added installed DEMO and harvest invocations with no Codex PATH and a temporary home; harvest reported zero model calls.
 - Corrected package smoke passed both with the normal cache and with a completely empty npm cache: **111 files**. Relevant ESLint and diff checks passed. No required check was skipped. Second remote CI is next.
+
+## Both remote CI jobs passed — 2026-09-22
+
+- [GitHub Actions run 35699251338](https://github.com/tty627/BeforeTibo/actions/runs/35699251338) completed **SUCCESS** on commit `1d53d0a2472ca8611c55e535b5ed8f6c111e57b8`. Linux completed at 07:22:45 UTC; macOS completed at 07:24:40 UTC. Both jobs passed the actual install, lint, typecheck, full/contracts/integration suites, build, offline DEMO, package installation and history scan. No model or personal account was used.
+- Linux log confirms Ubuntu 24.04.5 LTS, Node 24.20.0/npm 11.19.0; full suite **297/25 files**, contracts **140/2**, integrations **40/5**, package **111 files** and scan **161 files / 2 commits**. Linux execution sandbox is still unsupported; that job does not imply Linux executable Recipe support.
+- The original failed run remains recorded; it was not rerun into a misleading historical green. Fork-PR event acceptance (AC-81) remains NOT RUN despite successful push CI.
+- Added live CI badges to both READMEs, updated the verified environment/release records and prepared the final documentation commit. Tag and Release remain uncreated at this checkpoint.
+
+- Both CI logs were retrieved and read: macOS **26.6.2 (25G83) arm64**, Ubuntu **24.04.5 LTS x64**; both Node **24.20.0**, npm **11.19.0**, Git **2.55.0**, Vitest **4.1.11**. Each job passed **297 full / 140 contract / 40 integration tests**, **111 package files** and **161 candidate/staged files with 2 commits scanned**. Remote raw logs remain in ignored local evidence only.

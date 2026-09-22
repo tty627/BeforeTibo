@@ -70,9 +70,23 @@
   "real_model_tasks": "NOT RUN",
   "real_account_quota": "NOT RUN",
   "remote_ci": {
-    "url": "https://github.com/tty627/BeforeTibo/actions/runs/35698635470",
-    "status": "First remote run failed package smoke; fix and successful rerun required before release"
+    "url": "https://github.com/tty627/BeforeTibo/actions/runs/35699251338",
+    "commit": "1d53d0a2472ca8611c55e535b5ed8f6c111e57b8",
+    "event": "push",
+    "status": "PASS",
+    "jobs": {
+      "ubuntu-latest": "success",
+      "macos-latest": "success"
+    },
+    "fork_pull_request": "NOT RUN",
+    "environments": {
+      "ubuntu-latest": "Ubuntu 24.04.5 LTS x64",
+      "macos-latest": "macOS 26.6.2 (25G83) arm64",
+      "node": "24.20.0",
+      "npm": "11.19.0",
+      "git": "2.55.0"
+    }
   },
-  "publication": "Public repository tty627/BeforeTibo created; master commit 3566070b7d1ed84a886489785d97bea607e22ce3 verified remotely. Tag and prerelease pending passing CI.",
+  "publication": "Public repository tty627/BeforeTibo and master push verified. Both CI jobs passed. Final documentation commit and prerelease creation next.",
   "checked_at_utc": "2026-09-22T07:13:08.852036+00:00"
 }
