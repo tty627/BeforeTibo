@@ -4,7 +4,7 @@ This is an **authorized public prerelease candidate; publication checks are in p
 
 ## Release decision
 
-Local implementation and the nine required checks passed on the documented environment. The maintainer has now authorized **tty627/BeforeTibo**, **public**, **MIT © 2026 tty627**, the reviewed project-only content scope and **v0.1.0-alpha.1** prerelease. Current branch is `master`. The target name was checked and did not exist. Final documentation/package checks have passed. Commit, push, remote CI and Release verification are next; they are not claimed as complete here.
+Local implementation and the nine required checks passed on the documented environment. The maintainer has now authorized **tty627/BeforeTibo**, **public**, **MIT © 2026 tty627**, the reviewed project-only content scope and **v0.1.0-alpha.1** prerelease. The public repository has been created and commit `3566070b7d1ed84a886489785d97bea607e22ce3` was pushed normally to `master`; the remote hash was verified. Final local checks passed. The first remote CI failed package installation after the preceding tests/build passed. Fixing that failure and rerunning CI are required before tagging or creating the Release.
 
 ## Required commands
 
@@ -30,7 +30,7 @@ All commands use genuine Node 24.21.0. The system Node 25 path is not used as su
 - Toolsmith CSV: actual Playwright 1.63.0 / Chromium 153 fixed functional/browser validation under macOS Seatbelt, with temporary data included in the run disk budget. DEMO accepted 1 tool, then stopped for no progress after 3 dispatches. Real model generation **NOT RUN**.
 - Codex 0.154.0: actual help, generated public protocol, effective extension isolation and native sandbox probes. Account/model/real quota integration **NOT RUN**. This is not a claim that any account can execute successfully.
 - Quota: synthetic read-only observer, identity, multiple-window, stale/reset/reserve and failure checks. Runtime preflight must prove account/config/bucket matching. No purchases, reset redemption or API-key fallback.
-- macOS 26.5.2 arm64 is the local tested executable platform. Linux executable sandbox backend is not implemented; unsupported execution is blocked. Linux/macOS remote CI **NOT RUN**.
+- macOS 26.5.2 arm64 is the local tested executable platform. Linux executable sandbox backend is not implemented; unsupported execution is blocked. The first Linux/macOS remote CI is recorded in implementation-status.md; it is not yet a passing release gate.
 - npm advisory audit after the upgrade: **PASS, zero known vulnerabilities** (193 dependency entries). Earlier TLS failures remain recorded in the implementation history; this is an advisory database check, not a guarantee of absence of vulnerabilities.
 - No hard service-side zero-incremental-charge guarantee. Local dispatch/time/disk limits do not cap service billing.
 

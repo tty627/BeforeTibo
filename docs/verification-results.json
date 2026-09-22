@@ -69,7 +69,10 @@
   },
   "real_model_tasks": "NOT RUN",
   "real_account_quota": "NOT RUN",
-  "remote_ci": "NOT RUN",
-  "publication": "Authorized: tty627/BeforeTibo, public, MIT © 2026 tty627. Commit, remote CI and prerelease pending final verification.",
+  "remote_ci": {
+    "url": "https://github.com/tty627/BeforeTibo/actions/runs/35698635470",
+    "status": "First remote run failed package smoke; fix and successful rerun required before release"
+  },
+  "publication": "Public repository tty627/BeforeTibo created; master commit 3566070b7d1ed84a886489785d97bea607e22ce3 verified remotely. Tag and prerelease pending passing CI.",
   "checked_at_utc": "2026-09-22T07:13:08.852036+00:00"
 }

@@ -178,11 +178,11 @@
 | AC-84 | NOT RUN | [codex-compatibility.md](codex-compatibility.md) | 真实 exec 模型 smoke 未授权/未执行；公共帮助、配置和沙箱探针不能替代。 |
 | AC-85 | NOT RUN | 三 Recipe 的 DEMO/固定 validator 证据分列于本表 | Repo Book 真实模型：NOT RUN；Test Recipe 真实模型：NOT RUN；CSV真实模型：NOT RUN。一个合成闭环不证明其他真实联调。 |
 | AC-86 | NOT RUN | quota/preflight 合成 fixture 通过 | 没有真实账户 read、bucket mapping、更新时间及worker身份一致联调；运行时不满足gate则禁用quota，不作真实支持声明。 |
-| AC-87 | PASS | [publication-review.md](publication-review.md)、实际index/worktree/history扫描与staged diff审查 | 当前全部暂存内容检查无命中；项目历史为0 commits。创建首次commit后及推送前必须再扫描新历史，不能用此次空历史检查替代。 |
+| AC-87 | PASS | [publication-review.md](publication-review.md)、实际index/worktree/history扫描与staged diff审查 | 最终161文件暂存审查及首次实际commit历史扫描PASS；仅上传已审查项目内容和合成DEMO截图。后续commit仍需逐次扫描。 |
 | AC-88 | PASS | 维护者本次明确答复；[GITHUB_RELEASE.md](../GITHUB_RELEASE.md) | 已确认 tty627/BeforeTibo、public、MIT © 2026 tty627、已审查公开范围及 alpha.1 预发布；不包含 npm 发布或真实账户消费授权。 |
 | AC-89 | PASS | [RELEASE_READINESS.md](../RELEASE_READINESS.md)、[release-notes.md](../release-notes.md)、[verification-results.json](verification-results.json) | 九项本地检查全部PASS；已准备真实结果、限制与发布草稿，公开目标已授权，未把准备完成称为发布成功。 |
 | AC-90 | NOT RUN | E-GIT：当前remote为空 | 未尝试冲突的同名仓库/已有remote发布；没有替换remote或force-push。 |
-| AC-91 | NOT RUN | E-GIT；发布操作没有执行 | 创建、push、tag、远端CI、Release全部独立未执行；没有生成虚构远端地址。 |
+| AC-91 | NOT RUN | 仓库已创建并push；[首轮CI](https://github.com/tty627/BeforeTibo/actions/runs/35698635470) | 已核对public/master与3566070提交；远端安装包检查失败正在修复，tag和Release尚未执行。 |
 | AC-92 | PASS | E-GIT、E-PACK、E-CONTRACT/RPC权限检查 | 本会话仅本地pack/install，未npm publish、未上传用户产物；产品无publisher入口且禁止网络/扩展越权。未来发布仍需单独授权。 |
 
 ## 保留的未测与发布条件

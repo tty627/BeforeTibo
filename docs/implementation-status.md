@@ -143,3 +143,20 @@ Publication facts: project files explicitly staged and reviewed, no local commit
 - Execution-required checks ran on the documented macOS host. The test discovery regression no longer includes saved DEMO artifacts; those files were preserved. Earlier failing attempt logs remain private and are not part of the release.
 - Heuristic content scan passed for **161 candidate files** before final staging; image content and source/metadata changes were manually reviewed. The final staged blobs and first actual commit history must still be scanned before push.
 - Remote publication and remote CI remain pending at this exact checkpoint. No npm publish or real model/account task was run.
+
+## Public repository created and first remote CI — 2026-09-22
+
+- Reviewed and committed **161 files** as `3566070b7d1ed84a886489785d97bea607e22ce3`, using the verified maintainer's GitHub noreply identity. Actual staged blobs plus the first real commit history passed secret scanning. No user runtime state, credentials or raw logs were included.
+- Created **https://github.com/tty627/BeforeTibo**, visibility **PUBLIC**, default branch **master**; normal push succeeded. GitHub and `git ls-remote origin HEAD` both matched the local commit. No remote was replaced and no force push was used.
+- Added repository topics and enabled GitHub private vulnerability reporting; a subsequent API read confirmed `enabled: true`.
+- First actual GitHub Actions run: [35698635470](https://github.com/tty627/BeforeTibo/actions/runs/35698635470). Linux passed installation, lint, typecheck, unit/contracts/integration, build and offline DEMO, but **package-install smoke FAILED**. macOS executable tests and integration also passed, then the matrix fail-fast policy cancelled its remaining steps after Linux failed. Tag and Release are withheld until the failure is fixed and required remote checks pass.
+- The in-app browser did not connect during two bounded attempts to inspect the live GitHub rendering. This visual check is NOT RUN; local image inspection and actual package-link validation passed. No GitHub screenshot is claimed.
+
+- Remote failure root cause confirmed from the actual Linux job log: npm `ENOTCACHED` for registry package metadata during `npm install --offline` in package smoke. `npm ci` cached dependency archives but did not guarantee the package-index cache that a new consumer installation requires. Installation is allowed to access the registry; the installed runtime DEMO and harvest remain model-free/offline. The fix changes only the installation cache preference, with post-install runtime checks retained.
+- GitHub's README rendering API returned the four expected image references, and its repository content API confirmed all four image assets exist. This verifies uploaded content/HTML structure, not live browser visual rendering.
+
+## Remote package-install regression fixed — 2026-09-22
+
+- Reproduced the exact `ENOTCACHED` error locally after a cold-cache npm ci. Fixed package-smoke installation to prefer cached dependencies while allowing documented setup-time registry access.
+- Preserved actual external-directory tarball installation, CLI symlink, Recipe/resource/metadata and Markdown/image checks. Added installed DEMO and harvest invocations with no Codex PATH and a temporary home; harvest reported zero model calls.
+- Corrected package smoke passed both with the normal cache and with a completely empty npm cache: **111 files**. Relevant ESLint and diff checks passed. No required check was skipped. Second remote CI is next.
