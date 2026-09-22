@@ -1,0 +1,14 @@
+node_modules/
+dist/
+.before-tibo/
+*.tgz
+.env
+.env.*
+auth.json
+*.pem
+*.key
+coverage/
+test-results/
+.DS_Store
+.local/
+*.log

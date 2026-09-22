@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; connect-src 'none'; img-src 'none'; font-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>CSV Diff · BeforeTibo</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+<main>
+  <header><p class="eyebrow">BEFORETIBO / LOCAL TOOLS</p><h1>See what changed.</h1><p class="lead">Compare two CSV files by a key you choose. Your files stay in this browser.</p></header>
+  <!-- origin-marker -->
+  <aside class="notice">Generated local tool. Review the files before use. No account, upload or network connection is required.</aside>
+  <div class="inputs">
+    <section><h2>01 / Before</h2><label for="before-file">Original UTF-8 CSV</label><input id="before-file" type="file" accept=".csv,text/csv"><p id="before-info">Up to 5 MiB and 20,000 data rows</p></section>
+    <section><h2>02 / After</h2><label for="after-file">Updated UTF-8 CSV</label><input id="after-file" type="file" accept=".csv,text/csv"><p id="after-info">Column order may differ</p></section>
+  </div>
+  <section class="controls"><label for="key-column">Primary key column</label><select id="key-column" disabled><option value="">Choose a primary key…</option></select><div class="actions"><button id="compare" disabled>Compare files</button><button id="export" class="secondary" disabled>Export JSON</button></div></section>
+  <p id="error" class="error" role="alert" tabindex="-1"></p>
+  <p id="status" class="status" role="status" aria-live="polite">Load both files to begin. No primary key is chosen automatically.</p>
+  <div id="results"></div>
+  <details><summary>Formats and limits</summary><p>UTF-8, optional BOM, comma-separated, quoted fields, escaped quotes and multiline fields are supported. Both files must have the same unique, nonempty column names. Keys must be unique and nonempty. Values remain strings: 001 differs from 1, and spaces are preserved. Results are sorted by the key's code-unit order.</p><p>Each input is limited to 5 MiB or 20,000 data rows. The preview shows up to 500 rows per category; JSON export retains every difference. Files with different columns, duplicate keys, malformed quotes or invalid UTF-8 are rejected.</p><p>Try the included <a href="sample-a.csv" download>before sample</a> and <a href="sample-b.csv" download>after sample</a>. The sample data is synthetic.</p></details>
+  <footer>BeforeTibo · CSV Diff · Offline, inspectable, yours to keep.</footer>
+</main>
+</body>
+</html>

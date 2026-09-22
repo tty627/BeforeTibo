@@ -1,0 +1,29 @@
+{
+  "schema_version": "1.0",
+  "artifact_id": "artifact-demo-001",
+  "run_id": "run-demo-001",
+  "unit_id": "unit-overview-001",
+  "attempt_id": "attempt-demo-001",
+  "logical_key": "repo-book.overview",
+  "supersedes": null,
+  "title": "Synthetic overview fixture",
+  "kind": "document",
+  "data_origin": "demo",
+  "status": "candidate",
+  "adoption": "unreviewed",
+  "recipe_id": "repo-book",
+  "recipe_version": "0.1.0",
+  "source_commit": "0000000000000000000000000000000000000000",
+  "created_at": "2026-09-22T00:00:00Z",
+  "files": [
+    {
+      "path": "files/index.md",
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+      "size_bytes": 0
+    }
+  ],
+  "validations": [],
+  "limitations": [
+    "Schema example only. Hashes are placeholders and there is no backing validated artifact."
+  ]
+}

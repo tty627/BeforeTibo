@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "BeforeTibo Persisted Event Envelope v1",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "event_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 80,
+      "pattern": "^[a-z0-9][a-z0-9._-]*$"
+    },
+    "run_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 80,
+      "pattern": "^[a-z0-9][a-z0-9._-]*$"
+    },
+    "seq": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "occurred_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "run.created",
+        "run.preflight",
+        "run.ready",
+        "run.started",
+        "run.state_changed",
+        "dispatch.intent",
+        "worker.started",
+        "worker.progress",
+        "worker.exited",
+        "worker.interrupted",
+        "usage.observed",
+        "quota.observed",
+        "quota.unavailable",
+        "quota.stale",
+        "quota.boundary_changed",
+        "candidate.received",
+        "validation.completed",
+        "artifact.promoted",
+        "artifact.rejected",
+        "artifact.quarantined",
+        "stop.requested",
+        "harvest.generated",
+        "adapter.unknown",
+        "log.truncated",
+        "storage.error",
+        "run.finished"
+      ]
+    },
+    "data_origin": {
+      "type": "string",
+      "enum": [
+        "real",
+        "demo"
+      ]
+    },
+    "payload": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  },
+  "required": [
+    "schema_version",
+    "event_id",
+    "run_id",
+    "seq",
+    "occurred_at",
+    "type",
+    "data_origin",
+    "payload"
+  ],
+  "additionalProperties": false
+}

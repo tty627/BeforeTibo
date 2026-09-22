@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="680" viewBox="0 0 1440 680" role="img" aria-labelledby="title description">
+  <title id="title">BeforeTibo: a small loop that leaves something useful</title>
+  <desc id="description">A clean source snapshot enters one worker bounded by time, dispatch and disk limits. Independent checks either reject the candidate or promote an immutable artifact. Offline harvest creates a report without another model call. Stop drains or cancels active work. Resume preserves budgets, validates saved candidates first and never replays ambiguous dispatches.</desc>
+  <defs>
+    <linearGradient id="background" x2="1" y2="1"><stop stop-color="#111e30"/><stop offset="1" stop-color="#0b1320"/></linearGradient>
+    <linearGradient id="card" x2="0" y2="1"><stop stop-color="#1b2a3d"/><stop offset="1" stop-color="#142134"/></linearGradient>
+    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse"><path d="M32 0H0V32" fill="none" stroke="#b6d3eb" stroke-opacity=".035"/></pattern>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M1 1 8 5 1 9" fill="none" stroke="#8ba9bf" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></marker>
+    <marker id="reject-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M1 1 8 5 1 9" fill="none" stroke="#f0ad9c" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></marker>
+    <style>text{font-family:Inter,"SF Pro Display",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.overline{font-size:13px;font-weight:700;letter-spacing:2px;fill:#8fa9bf}.step{font-size:22px;font-weight:700;fill:#edf4fa;letter-spacing:-.45px}.small{font-size:15px;fill:#a7bbce}.number{font-size:12px;fill:#b1e4d2;font-weight:700;letter-spacing:1px}.icon{fill:none;stroke:#9bdfc8;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}</style>
+  </defs>
+  <rect width="1440" height="680" rx="24" fill="url(#background)"/>
+  <rect width="1440" height="680" rx="24" fill="url(#grid)"/>
+  <text class="overline" x="56" y="60">BEFORETIBO / HOW THE WORK BECOMES YOURS</text>
+  <text x="56" y="112" fill="#f2f6fb" font-size="38" font-weight="750" letter-spacing="-1">A small loop. Something useful to keep.</text>
+  <text class="small" x="56" y="146">The worker proposes. The runner checks. You decide what to adopt.</text>
+
+  <g transform="translate(56 198)">
+    <rect width="240" height="206" rx="16" fill="url(#card)" stroke="#33465b"/>
+    <text class="number" x="22" y="32">01</text>
+    <g class="icon" transform="translate(187 21)"><path d="M0 9h12l4 4h16v21H0z"/><path d="M6 3h12l4 4h10"/><path d="m10 23 5 5 8-10"/></g>
+    <text class="step" x="22" y="93">Snapshot</text>
+    <text class="small" x="22" y="124">Clean, committed source.</text>
+    <text class="small" x="22" y="147">Original repo stays intact.</text>
+    <text x="22" y="180" font-size="12" fill="#7694ae">FILTERED · ISOLATED</text>
+  </g>
+  <g transform="translate(328 198)">
+    <rect width="240" height="206" rx="16" fill="url(#card)" stroke="#33465b"/>
+    <text class="number" x="22" y="32">02</text>
+    <g class="icon" transform="translate(184 21)"><rect x="0" y="6" width="34" height="27" rx="5"/><path d="m8 15 5 5-5 5m12 0h6M17 0v6"/></g>
+    <text class="step" x="22" y="93">Bounded worker</text>
+    <text class="small" x="22" y="124">One worker. A finite task.</text>
+    <text class="small" x="22" y="147">Time, dispatch + disk limits.</text>
+    <text x="22" y="180" font-size="12" fill="#7694ae">OS SANDBOX REQUIRED</text>
+  </g>
+  <g transform="translate(600 198)">
+    <rect width="240" height="206" rx="16" fill="#182e35" stroke="#579180"/>
+    <text class="number" x="22" y="32">03</text>
+    <g class="icon" transform="translate(185 20)"><path d="m17 1 15 6v12c0 9-15 17-15 17S2 28 2 19V7z"/><path d="m9 18 6 6 10-12"/></g>
+    <text class="step" x="22" y="93">Independent checks</text>
+    <text class="small" x="22" y="124">Fixed, runner-owned rules.</text>
+    <text class="small" x="22" y="147">Required checks must pass.</text>
+    <text x="22" y="180" font-size="12" fill="#9bdfc8">SKIPPED ≠ PASSED</text>
+  </g>
+  <g transform="translate(872 198)">
+    <rect width="240" height="206" rx="16" fill="url(#card)" stroke="#33465b"/>
+    <text class="number" x="22" y="32">04</text>
+    <g class="icon" transform="translate(184 20)"><path d="m1 9 16-7 16 7v23H1zM1 9h32M12 20h10"/><path d="M12 2h10"/></g>
+    <text class="step" x="22" y="93">Immutable artifacts</text>
+    <text class="small" x="22" y="124">Saved files + check evidence.</text>
+    <text class="small" x="22" y="147">Human review still matters.</text>
+    <text x="22" y="180" font-size="12" fill="#7694ae">ACCEPTED ≠ ADOPTED</text>
+  </g>
+  <g transform="translate(1144 198)">
+    <rect width="240" height="206" rx="16" fill="url(#card)" stroke="#33465b"/>
+    <text class="number" x="22" y="32">05</text>
+    <g class="icon" transform="translate(184 20)"><path d="M3 1h20l9 9v24H3zM23 1v10h9M10 17h15M10 24h15"/></g>
+    <text class="step" x="22" y="93">Offline harvest</text>
+    <text class="small" x="22" y="124">An honest report + receipt.</text>
+    <text class="small" x="22" y="147">No extra model call needed.</text>
+    <text x="22" y="180" font-size="12" fill="#7694ae">REOPEN · REVIEW · KEEP</text>
+  </g>
+  <g fill="none" stroke="#8ba9bf" stroke-width="1.5" marker-end="url(#arrow)"><path d="M303 299h17"/><path d="M575 299h17"/><path d="M847 299h17"/><path d="M1119 299h17"/></g>
+  <text x="850" y="283" font-size="10" fill="#9bdfc8" text-anchor="middle">PASS</text>
+
+  <path d="M720 405v33q0 14-14 14H458q-10 0-10-10v-28" fill="none" stroke="#f0ad9c" stroke-width="1.5" stroke-dasharray="5 5" marker-end="url(#reject-arrow)"/>
+  <rect x="778" y="428" width="606" height="55" rx="12" fill="#302732" stroke="#66505a"/>
+  <text x="799" y="451" font-size="14" font-weight="650" fill="#f5b6a5">Candidate rejected? It stays out of accepted artifacts.</text>
+  <text x="799" y="471" font-size="12" fill="#c7a7a4">Repair only within the original limits; otherwise stop with an honest report.</text>
+  <path d="M721 453h45" fill="none" stroke="#f0ad9c" stroke-width="1.5"/>
+  <text x="545" y="476" font-size="12" fill="#dba99e">BOUNDED REPAIR</text>
+
+  <rect x="56" y="523" width="1328" height="111" rx="16" fill="#111f30" stroke="#33465b"/>
+  <circle cx="85" cy="556" r="5" fill="#ebbf77"/>
+  <text x="102" y="562" font-size="16" font-weight="700" fill="#edc68b">STOP / RESUME</text>
+  <text x="280" y="562" font-size="15" fill="#c2d1de">Stop drains or cancels active work. Resume checks saved candidates first.</text>
+  <text x="280" y="591" font-size="15" fill="#a7bbce">The original budgets stay. Ambiguous dispatches never get replayed.</text>
+  <text x="280" y="614" font-size="12" fill="#7f99b0">Local stop thresholds are guardrails, not server-side billing caps.</text>
+</svg>

@@ -1,0 +1,29 @@
+{
+  "schema_version": "1.0",
+  "outcome": "candidate",
+  "summary": "Synthetic example: a project overview candidate is ready for runner validation.",
+  "artifact_candidates": [
+    {
+      "logical_key": "repo-book.overview",
+      "title": "Project overview (DEMO)",
+      "kind": "document",
+      "paths": [
+        "out/repo-book/index.md",
+        "out/repo-book/evidence.json",
+        "out/repo-book/limitations.md"
+      ],
+      "limitations": [
+        "Synthetic contract fixture, not a result from a real Codex run."
+      ]
+    }
+  ],
+  "observations": [
+    {
+      "kind": "unverified",
+      "summary": "This example illustrates the result shape only.",
+      "relative_paths": []
+    }
+  ],
+  "blockers": [],
+  "proposed_next_unit": "module-guides"
+}

@@ -1,0 +1,159 @@
+{
+  "schema_version": "1.0",
+  "id": "test-me-to-death",
+  "version": "0.1.0",
+  "title": "Test Me to Death",
+  "mode": "harden",
+  "goal": "Add meaningful, actually executed behavior tests without changing the existing production baseline.",
+  "input": {
+    "kind": "repository",
+    "languages": [
+      "javascript",
+      "typescript"
+    ],
+    "package_manager": "npm",
+    "test_framework": "vitest"
+  },
+  "capabilities": [
+    "snapshot",
+    "sandbox-exec",
+    "vitest"
+  ],
+  "permissions": {
+    "source": "baseline-read-only",
+    "writes": [
+      "project/tests/before-tibo/**",
+      "out/test-me-to-death/**"
+    ],
+    "task_network": "deny",
+    "execute_project_code": true
+  },
+  "artifact_kinds": [
+    "test_patch",
+    "reproduction",
+    "experiment"
+  ],
+  "stages": [
+    {
+      "id": "boundary-tests",
+      "title": "Boundary behavior tests",
+      "max_units": 3,
+      "depends_on": [],
+      "expected_paths": [
+        "project/tests/before-tibo/*.test.*",
+        "out/test-me-to-death/scenarios.md"
+      ],
+      "validators": [
+        {
+          "id": "output-scope",
+          "required": true,
+          "params": {}
+        },
+        {
+          "id": "protected-inputs",
+          "required": true,
+          "params": {}
+        },
+        {
+          "id": "required-files",
+          "required": true,
+          "params": {}
+        },
+        {
+          "id": "vitest-baseline",
+          "required": true,
+          "params": {}
+        },
+        {
+          "id": "vitest-added-tests",
+          "required": true,
+          "params": {}
+        }
+      ]
+    },
+    {
+      "id": "state-tests",
+      "title": "State transition tests",
+      "max_units": 3,
+      "depends_on": [
+        "boundary-tests"
+      ],
+      "expected_paths": [
+        "project/tests/before-tibo/*.test.*",
+        "out/test-me-to-death/scenarios.md"
+      ],
+      "validators": [
+        {
+          "id": "output-scope",
+          "required": true,
+          "params": {}
+        },
+        {
+          "id": "protected-inputs",
+          "required": true,
+          "params": {}
+        },
+        {
+          "id": "required-files",
+          "required": true,
+          "params": {}
+        },
+        {
+          "id": "vitest-baseline",
+          "required": true,
+          "params": {}
+        },
+        {
+          "id": "vitest-added-tests",
+          "required": true,
+          "params": {}
+        }
+      ]
+    },
+    {
+      "id": "property-tests",
+      "title": "Bounded property checks",
+      "max_units": 2,
+      "depends_on": [
+        "boundary-tests"
+      ],
+      "expected_paths": [
+        "project/tests/before-tibo/*.test.*",
+        "out/test-me-to-death/scenarios.md"
+      ],
+      "validators": [
+        {
+          "id": "output-scope",
+          "required": true,
+          "params": {}
+        },
+        {
+          "id": "protected-inputs",
+          "required": true,
+          "params": {}
+        },
+        {
+          "id": "required-files",
+          "required": true,
+          "params": {}
+        },
+        {
+          "id": "vitest-baseline",
+          "required": true,
+          "params": {}
+        },
+        {
+          "id": "vitest-added-tests",
+          "required": true,
+          "params": {}
+        }
+      ]
+    }
+  ],
+  "known_limitations": [
+    "Only approved single-package npm/Vitest projects are supported.",
+    "The existing baseline must pass before generation starts.",
+    "New tests must be discovered by the existing runner configuration.",
+    "Reproduction artifacts use a separate runner-controlled validation route and do not turn failing tests into passing ones."
+  ]
+}

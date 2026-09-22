@@ -1,0 +1,67 @@
+{
+  "name": "before-tibo",
+  "version": "0.1.0-alpha.1",
+  "description": "Bounded local Codex workflows with independently validated, lasting artifacts",
+  "type": "module",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tty627/BeforeTibo.git"
+  },
+  "homepage": "https://github.com/tty627/BeforeTibo#readme",
+  "bugs": {
+    "url": "https://github.com/tty627/BeforeTibo/issues"
+  },
+  "engines": {
+    "node": ">=24 <25"
+  },
+  "bin": {
+    "before-tibo": "dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "contracts",
+    "recipes",
+    "templates",
+    "examples/csv-fixture",
+    "README.md",
+    "README.zh-CN.md",
+    "CONTRIBUTING.md",
+    "docs/architecture.md",
+    "docs/security-model.md",
+    "docs/supported-environments.md",
+    "docs/troubleshooting.md",
+    "docs/releasing.md",
+    "docs/codex-compatibility.md",
+    "docs/assets",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint src tests scripts",
+    "test": "vitest run",
+    "test:contracts": "vitest run tests/contract",
+    "test:integration": "vitest run tests/integration",
+    "demo:smoke": "node scripts/demo-smoke.mjs",
+    "test:pack": "node scripts/pack-smoke.mjs",
+    "scan:secrets": "node scripts/secret-scan.mjs"
+  },
+  "dependencies": {
+    "ajv": "8.20.0",
+    "ajv-formats": "3.0.1",
+    "commander": "15.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "24.13.6",
+    "eslint": "10.11.0",
+    "playwright": "1.63.0",
+    "typescript": "5.9.3",
+    "typescript-eslint": "8.70.1",
+    "vite": "7.3.6",
+    "vitest": "4.1.11"
+  },
+  "overrides": {
+    "vite": "7.3.6"
+  }
+}

@@ -1,0 +1,75 @@
+{
+  "date": "2026-09-22",
+  "environment": {
+    "node": "24.21.0",
+    "os": "macOS 26.5.2 arm64",
+    "git": "2.51.0",
+    "codex": "0.154.0",
+    "vitest": "4.1.11",
+    "vite": "7.3.6",
+    "playwright": "1.63.0"
+  },
+  "installation": "Clean dependency install in the development checkout, including existing synthetic DEMO state; earlier independent clean-directory verification retained in implementation history.",
+  "commands": [
+    {
+      "command": "npm ci",
+      "exit_code": 0,
+      "duration_seconds": 3.04
+    },
+    {
+      "command": "npm run lint",
+      "exit_code": 0,
+      "duration_seconds": 0.94
+    },
+    {
+      "command": "npm run typecheck",
+      "exit_code": 0,
+      "duration_seconds": 1.01
+    },
+    {
+      "command": "npm test",
+      "exit_code": 0,
+      "duration_seconds": 20.23
+    },
+    {
+      "command": "npm run test:contracts",
+      "exit_code": 0,
+      "duration_seconds": 0.48
+    },
+    {
+      "command": "npm run test:integration",
+      "exit_code": 0,
+      "duration_seconds": 18.27
+    },
+    {
+      "command": "npm run build",
+      "exit_code": 0,
+      "duration_seconds": 0.96
+    },
+    {
+      "command": "npm run demo:smoke",
+      "exit_code": 0,
+      "duration_seconds": 0.71
+    },
+    {
+      "command": "npm run test:pack",
+      "exit_code": 0,
+      "duration_seconds": 1.91
+    }
+  ],
+  "counts": {
+    "full_suite": 297,
+    "contract_suite": 140,
+    "integration_suite": 40,
+    "pack_files": 111
+  },
+  "audit": {
+    "exit_code": 0,
+    "known_vulnerabilities": 0
+  },
+  "real_model_tasks": "NOT RUN",
+  "real_account_quota": "NOT RUN",
+  "remote_ci": "NOT RUN",
+  "publication": "Authorized: tty627/BeforeTibo, public, MIT © 2026 tty627. Commit, remote CI and prerelease pending final verification.",
+  "checked_at_utc": "2026-09-22T07:13:08.852036+00:00"
+}

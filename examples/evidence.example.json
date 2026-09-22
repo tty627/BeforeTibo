@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.0",
+  "data_origin": "demo",
+  "source_commit": "0000000000000000000000000000000000000000",
+  "claims": [
+    {
+      "claim_id": "claim-demo-001",
+      "claim": "This is a synthetic example, not a statement about a real repository.",
+      "evidence_kind": "inference",
+      "source_path": null,
+      "source_blob_sha256": null,
+      "line_start": null,
+      "line_end": null,
+      "symbol": null,
+      "check_evidence_path": null,
+      "limitations": [
+        "No source has been examined."
+      ]
+    }
+  ]
+}

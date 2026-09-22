@@ -1,0 +1,159 @@
+{
+  "schema_version": "1.0",
+  "id": "toolsmith-csv",
+  "version": "0.1.0",
+  "title": "Toolsmith: CSV Diff",
+  "mode": "build",
+  "goal": "Build one complete offline CSV comparison tool, then improve edge cases and usability.",
+  "input": {
+    "kind": "new-project",
+    "languages": [
+      "javascript"
+    ],
+    "package_manager": null,
+    "test_framework": null
+  },
+  "capabilities": [
+    "sandbox-exec",
+    "browser-validation"
+  ],
+  "permissions": {
+    "source": "baseline-read-only",
+    "writes": [
+      "out/csv-diff/**"
+    ],
+    "task_network": "deny",
+    "execute_project_code": true
+  },
+  "artifact_kinds": [
+    "tool",
+    "experiment"
+  ],
+  "stages": [
+    {
+      "id": "complete-tool",
+      "title": "Complete usable CSV tool",
+      "max_units": 1,
+      "depends_on": [],
+      "expected_paths": [
+        "out/csv-diff/index.html",
+        "out/csv-diff/app.js",
+        "out/csv-diff/styles.css",
+        "out/csv-diff/README.md"
+      ],
+      "validators": [
+        {
+          "id": "output-scope",
+          "required": true,
+          "params": {}
+        },
+        {
+          "id": "protected-inputs",
+          "required": true,
+          "params": {}
+        },
+        {
+          "id": "required-files",
+          "required": true,
+          "params": {}
+        },
+        {
+          "id": "csv-tool-functional",
+          "required": true,
+          "params": {}
+        },
+        {
+          "id": "no-external-network",
+          "required": true,
+          "params": {}
+        }
+      ]
+    },
+    {
+      "id": "edge-cases",
+      "title": "Improve parser and validation edge cases",
+      "max_units": 2,
+      "depends_on": [
+        "complete-tool"
+      ],
+      "expected_paths": [
+        "out/csv-diff/index.html",
+        "out/csv-diff/app.js",
+        "out/csv-diff/README.md"
+      ],
+      "validators": [
+        {
+          "id": "output-scope",
+          "required": true,
+          "params": {}
+        },
+        {
+          "id": "protected-inputs",
+          "required": true,
+          "params": {}
+        },
+        {
+          "id": "required-files",
+          "required": true,
+          "params": {}
+        },
+        {
+          "id": "csv-tool-functional",
+          "required": true,
+          "params": {}
+        },
+        {
+          "id": "no-external-network",
+          "required": true,
+          "params": {}
+        }
+      ]
+    },
+    {
+      "id": "usability",
+      "title": "Keyboard and feedback improvements",
+      "max_units": 1,
+      "depends_on": [
+        "complete-tool"
+      ],
+      "expected_paths": [
+        "out/csv-diff/index.html",
+        "out/csv-diff/app.js",
+        "out/csv-diff/README.md"
+      ],
+      "validators": [
+        {
+          "id": "output-scope",
+          "required": true,
+          "params": {}
+        },
+        {
+          "id": "protected-inputs",
+          "required": true,
+          "params": {}
+        },
+        {
+          "id": "required-files",
+          "required": true,
+          "params": {}
+        },
+        {
+          "id": "csv-tool-functional",
+          "required": true,
+          "params": {}
+        },
+        {
+          "id": "no-external-network",
+          "required": true,
+          "params": {}
+        }
+      ]
+    }
+  ],
+  "known_limitations": [
+    "UTF-8, comma delimiter, headers and one explicit unique primary key only.",
+    "Each input is limited to 5 MiB or 20,000 rows, whichever is reached first.",
+    "Columns must match as a set; values are compared as strings.",
+    "A supported browser validation backend must be installed before functional acceptance."
+  ]
+}

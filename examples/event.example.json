@@ -1,0 +1,13 @@
+{
+  "schema_version": "1.0",
+  "event_id": "event-demo-001",
+  "run_id": "run-demo-001",
+  "seq": 1,
+  "occurred_at": "2026-09-22T00:00:00Z",
+  "type": "run.created",
+  "data_origin": "demo",
+  "payload": {
+    "recipe_id": "repo-book",
+    "message": "Synthetic event for contract testing; no real task was started."
+  }
+}

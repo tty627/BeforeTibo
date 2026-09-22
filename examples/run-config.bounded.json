@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.0",
+  "recipe_id": "repo-book",
+  "mode": "bounded",
+  "target_path": ".",
+  "state_dir": "~/.before-tibo",
+  "budget": {
+    "max_dispatches": 4,
+    "max_run_minutes": 20,
+    "job_timeout_seconds": 600,
+    "max_repairs_per_unit": 2,
+    "max_consecutive_no_progress": 2,
+    "finalization_reserve_seconds": 30,
+    "max_run_disk_mb": 500
+  },
+  "quota": {
+    "required_buckets": [],
+    "reserve_percent": 10,
+    "poll_seconds": 15,
+    "stale_seconds": 60
+  },
+  "execution": {
+    "auth": "chatgpt",
+    "max_workers": 1,
+    "sandbox": "required",
+    "task_network": "deny"
+  },
+  "billing": {
+    "require_zero_incremental_charge": false,
+    "require_user_acknowledgement": true
+  }
+}

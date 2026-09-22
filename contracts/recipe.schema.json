@@ -1,0 +1,250 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "BeforeTibo Recipe v1",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 80,
+      "pattern": "^[a-z0-9][a-z0-9._-]*$"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "mode": {
+      "type": "string",
+      "enum": [
+        "learn",
+        "harden",
+        "build"
+      ]
+    },
+    "goal": {
+      "type": "string",
+      "minLength": 1
+    },
+    "input": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "type": "string",
+          "enum": [
+            "repository",
+            "new-project"
+          ]
+        },
+        "languages": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "package_manager": {
+          "enum": [
+            "npm",
+            null
+          ]
+        },
+        "test_framework": {
+          "enum": [
+            "vitest",
+            null
+          ]
+        }
+      },
+      "required": [
+        "kind",
+        "languages",
+        "package_manager",
+        "test_framework"
+      ],
+      "additionalProperties": false
+    },
+    "capabilities": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "snapshot",
+          "sandbox-exec",
+          "vitest",
+          "browser-validation"
+        ]
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "permissions": {
+      "type": "object",
+      "properties": {
+        "source": {
+          "const": "baseline-read-only"
+        },
+        "writes": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 512,
+            "pattern": "^(?!/)(?!.*\\\\)(?![A-Za-z]:)(?!.*(?:^|/)\\.\\.(?:/|$)).+$"
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "task_network": {
+          "const": "deny"
+        },
+        "execute_project_code": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "source",
+        "writes",
+        "task_network",
+        "execute_project_code"
+      ],
+      "additionalProperties": false
+    },
+    "artifact_kinds": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "document",
+          "test_patch",
+          "tool",
+          "reproduction",
+          "experiment"
+        ]
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "stages": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 80,
+            "pattern": "^[a-z0-9][a-z0-9._-]*$"
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1
+          },
+          "max_units": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 10
+          },
+          "depends_on": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 80,
+              "pattern": "^[a-z0-9][a-z0-9._-]*$"
+            },
+            "uniqueItems": true
+          },
+          "expected_paths": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 512,
+              "pattern": "^(?!/)(?!.*\\\\)(?![A-Za-z]:)(?!.*(?:^|/)\\.\\.(?:/|$)).+$"
+            },
+            "minItems": 1
+          },
+          "validators": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "enum": [
+                    "output-scope",
+                    "protected-inputs",
+                    "required-files",
+                    "source-references",
+                    "safe-markdown",
+                    "vitest-baseline",
+                    "vitest-added-tests",
+                    "reproduction-check",
+                    "csv-tool-functional",
+                    "no-external-network"
+                  ]
+                },
+                "required": {
+                  "type": "boolean"
+                },
+                "params": {
+                  "type": "object",
+                  "additionalProperties": true
+                }
+              },
+              "required": [
+                "id",
+                "required",
+                "params"
+              ],
+              "additionalProperties": false
+            },
+            "minItems": 1
+          }
+        },
+        "required": [
+          "id",
+          "title",
+          "max_units",
+          "depends_on",
+          "expected_paths",
+          "validators"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1,
+      "maxItems": 10
+    },
+    "known_limitations": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 1
+    }
+  },
+  "required": [
+    "schema_version",
+    "id",
+    "version",
+    "title",
+    "mode",
+    "goal",
+    "input",
+    "capabilities",
+    "permissions",
+    "artifact_kinds",
+    "stages",
+    "known_limitations"
+  ],
+  "additionalProperties": false
+}

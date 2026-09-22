@@ -1,0 +1,191 @@
+{
+  "schema_version": "1.0",
+  "id": "repo-book",
+  "version": "0.1.0",
+  "title": "Repo Book",
+  "mode": "learn",
+  "goal": "Create an evidence-backed, incrementally useful guide to the selected repository snapshot.",
+  "input": {
+    "kind": "repository",
+    "languages": [],
+    "package_manager": null,
+    "test_framework": null
+  },
+  "capabilities": [
+    "snapshot",
+    "sandbox-exec"
+  ],
+  "permissions": {
+    "source": "baseline-read-only",
+    "writes": [
+      "out/repo-book/**"
+    ],
+    "task_network": "deny",
+    "execute_project_code": false
+  },
+  "artifact_kinds": [
+    "document"
+  ],
+  "stages": [
+    {
+      "id": "overview",
+      "title": "Project overview",
+      "max_units": 1,
+      "depends_on": [],
+      "expected_paths": [
+        "out/repo-book/index.md",
+        "out/repo-book/evidence.json",
+        "out/repo-book/limitations.md"
+      ],
+      "validators": [
+        {
+          "id": "output-scope",
+          "required": true,
+          "params": {}
+        },
+        {
+          "id": "protected-inputs",
+          "required": true,
+          "params": {}
+        },
+        {
+          "id": "required-files",
+          "required": true,
+          "params": {}
+        },
+        {
+          "id": "source-references",
+          "required": true,
+          "params": {}
+        },
+        {
+          "id": "safe-markdown",
+          "required": true,
+          "params": {}
+        }
+      ]
+    },
+    {
+      "id": "module-guides",
+      "title": "Core module guides",
+      "max_units": 4,
+      "depends_on": [
+        "overview"
+      ],
+      "expected_paths": [
+        "out/repo-book/modules/*.md",
+        "out/repo-book/evidence.json"
+      ],
+      "validators": [
+        {
+          "id": "output-scope",
+          "required": true,
+          "params": {}
+        },
+        {
+          "id": "protected-inputs",
+          "required": true,
+          "params": {}
+        },
+        {
+          "id": "required-files",
+          "required": true,
+          "params": {}
+        },
+        {
+          "id": "source-references",
+          "required": true,
+          "params": {}
+        },
+        {
+          "id": "safe-markdown",
+          "required": true,
+          "params": {}
+        }
+      ]
+    },
+    {
+      "id": "lifecycles",
+      "title": "Request or job lifecycles",
+      "max_units": 2,
+      "depends_on": [
+        "overview"
+      ],
+      "expected_paths": [
+        "out/repo-book/lifecycles/*.md",
+        "out/repo-book/evidence.json"
+      ],
+      "validators": [
+        {
+          "id": "output-scope",
+          "required": true,
+          "params": {}
+        },
+        {
+          "id": "protected-inputs",
+          "required": true,
+          "params": {}
+        },
+        {
+          "id": "required-files",
+          "required": true,
+          "params": {}
+        },
+        {
+          "id": "source-references",
+          "required": true,
+          "params": {}
+        },
+        {
+          "id": "safe-markdown",
+          "required": true,
+          "params": {}
+        }
+      ]
+    },
+    {
+      "id": "debugging",
+      "title": "Debugging guide",
+      "max_units": 1,
+      "depends_on": [
+        "overview"
+      ],
+      "expected_paths": [
+        "out/repo-book/debugging.md",
+        "out/repo-book/evidence.json"
+      ],
+      "validators": [
+        {
+          "id": "output-scope",
+          "required": true,
+          "params": {}
+        },
+        {
+          "id": "protected-inputs",
+          "required": true,
+          "params": {}
+        },
+        {
+          "id": "required-files",
+          "required": true,
+          "params": {}
+        },
+        {
+          "id": "source-references",
+          "required": true,
+          "params": {}
+        },
+        {
+          "id": "safe-markdown",
+          "required": true,
+          "params": {}
+        }
+      ]
+    }
+  ],
+  "known_limitations": [
+    "Reference checks do not prove every explanation is semantically correct.",
+    "No dependency installation or project command execution is included.",
+    "Only the selected committed snapshot and approved files are covered."
+  ]
+}

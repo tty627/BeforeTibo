@@ -1,0 +1,35 @@
+name: Offline verification
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  verify:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '24'
+          cache: npm
+      - run: npm ci
+      - if: runner.os == 'macOS'
+        run: npx --no-install playwright install chromium
+      - if: runner.os == 'macOS'
+        run: echo 'BEFORE_TIBO_EXPECT_EXECUTION=1' >> "$GITHUB_ENV"
+      - run: npm run lint
+      - run: npm run typecheck
+      - run: npm test
+      - run: npm run test:contracts
+      - run: npm run test:integration
+      - run: npm run build
+      - run: npm run demo:smoke
+      - run: npm run test:pack
+      - run: npm run scan:secrets

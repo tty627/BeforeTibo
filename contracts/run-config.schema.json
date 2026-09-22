@@ -1,0 +1,190 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "BeforeTibo Run Configuration v1",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "recipe_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 80,
+      "pattern": "^[a-z0-9][a-z0-9._-]*$"
+    },
+    "mode": {
+      "type": "string",
+      "enum": [
+        "bounded",
+        "quota"
+      ]
+    },
+    "target_path": {
+      "type": "string",
+      "minLength": 1
+    },
+    "state_dir": {
+      "type": "string",
+      "minLength": 1
+    },
+    "budget": {
+      "type": "object",
+      "properties": {
+        "max_dispatches": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 100
+        },
+        "max_run_minutes": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 1440
+        },
+        "job_timeout_seconds": {
+          "type": "integer",
+          "minimum": 10,
+          "maximum": 3600
+        },
+        "max_repairs_per_unit": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2
+        },
+        "max_consecutive_no_progress": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 5
+        },
+        "finalization_reserve_seconds": {
+          "type": "integer",
+          "minimum": 5,
+          "maximum": 120
+        },
+        "max_run_disk_mb": {
+          "type": "integer",
+          "minimum": 50,
+          "maximum": 10000
+        }
+      },
+      "required": [
+        "max_dispatches",
+        "max_run_minutes",
+        "job_timeout_seconds",
+        "max_repairs_per_unit",
+        "max_consecutive_no_progress",
+        "finalization_reserve_seconds",
+        "max_run_disk_mb"
+      ],
+      "additionalProperties": false
+    },
+    "quota": {
+      "type": "object",
+      "properties": {
+        "required_buckets": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "reserve_percent": {
+          "type": "number",
+          "minimum": 0,
+          "exclusiveMaximum": 100
+        },
+        "poll_seconds": {
+          "type": "integer",
+          "minimum": 5,
+          "maximum": 300
+        },
+        "stale_seconds": {
+          "type": "integer",
+          "minimum": 10,
+          "maximum": 600
+        }
+      },
+      "required": [
+        "required_buckets",
+        "reserve_percent",
+        "poll_seconds",
+        "stale_seconds"
+      ],
+      "additionalProperties": false
+    },
+    "execution": {
+      "type": "object",
+      "properties": {
+        "auth": {
+          "const": "chatgpt"
+        },
+        "max_workers": {
+          "const": 1
+        },
+        "sandbox": {
+          "const": "required"
+        },
+        "task_network": {
+          "const": "deny"
+        }
+      },
+      "required": [
+        "auth",
+        "max_workers",
+        "sandbox",
+        "task_network"
+      ],
+      "additionalProperties": false
+    },
+    "billing": {
+      "type": "object",
+      "properties": {
+        "require_zero_incremental_charge": {
+          "type": "boolean"
+        },
+        "require_user_acknowledgement": {
+          "const": true
+        }
+      },
+      "required": [
+        "require_zero_incremental_charge",
+        "require_user_acknowledgement"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "schema_version",
+    "recipe_id",
+    "mode",
+    "target_path",
+    "state_dir",
+    "budget",
+    "quota",
+    "execution",
+    "billing"
+  ],
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "mode": {
+            "const": "quota"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "quota": {
+            "properties": {
+              "required_buckets": {
+                "minItems": 1
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}
